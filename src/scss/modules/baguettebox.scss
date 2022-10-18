@@ -1,0 +1,301 @@
+@import '../vars.scss';
+
+#baguetteBox-overlay {
+    background-color: rgba(0, 0, 0, .92);
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    transition: opacity .5s ease;
+    width: 100%;
+    z-index: 1000000
+}
+
+#baguetteBox-overlay.visible {
+    opacity: 1
+}
+
+#baguetteBox-overlay .full-image {
+    align-items: center;
+    display: inline-flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%
+}
+
+#baguetteBox-overlay .full-image figure {
+    background-color: #fff;
+    margin: 0;
+    position: relative
+}
+
+#baguetteBox-overlay .full-image img {
+    display: flex;
+    max-height: 100vh;
+    max-width: 100%
+}
+
+#baguetteBox-overlay .full-image figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .6);
+    bottom: 0;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    position: absolute;
+    white-space: normal;
+    width: 100%;
+    min-height: 40px;
+}
+
+#baguetteBox-overlay .full-image:before {
+    content: "";
+    display: inline-block;
+    height: 50%;
+    margin-right: -1px;
+    width: 1px
+}
+
+#baguetteBox-slider {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: left .4s ease, transform .4s ease;
+    white-space: nowrap;
+    width: 100%
+}
+
+#baguetteBox-slider.bounce-from-right {
+    -webkit-animation: bounceFromRight .4s ease-out;
+    animation: bounceFromRight .4s ease-out
+}
+
+#baguetteBox-slider.bounce-from-left {
+    -webkit-animation: bounceFromLeft .4s ease-out;
+    animation: bounceFromLeft .4s ease-out
+}
+
+@-webkit-keyframes bounceFromRight {
+
+    0%,
+    to {
+        margin-left: 0
+    }
+
+    50% {
+        margin-left: -30px
+    }
+}
+
+@keyframes bounceFromRight {
+
+    0%,
+    to {
+        margin-left: 0
+    }
+
+    50% {
+        margin-left: -30px
+    }
+}
+
+@-webkit-keyframes bounceFromLeft {
+
+    0%,
+    to {
+        margin-left: 0
+    }
+
+    50% {
+        margin-left: 30px
+    }
+}
+
+@keyframes bounceFromLeft {
+
+    0%,
+    to {
+        margin-left: 0
+    }
+
+    50% {
+        margin-left: 30px
+    }
+}
+
+.baguetteBox-button {
+    position: absolute;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 50%;
+    // background-color: $black;
+    transition: background-color .4s ease;
+
+    &#next-button {
+        @include tablet_mid {
+            right: 15px;
+        }
+
+        @extend %arrow-button;
+        right: 40px;
+    }
+
+    &#previous-button {
+        @include tablet_mid {
+            left: 15px;
+        }
+
+        @extend %arrow-button;
+        left: 40px;
+    }
+
+    &#close-button {
+        @include tablet_mid {
+            top: 15px;
+            right: 15px;
+        }
+
+        top: 40px;
+        right: 40px;
+    }
+
+    // Firefox fix
+    svg {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.baguetteBox-spinner {
+    display: inline-block;
+    height: 40px;
+    left: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    position: absolute;
+    top: 50%;
+    width: 40px
+}
+
+.baguetteBox-double-bounce1,
+.baguetteBox-double-bounce2 {
+    -webkit-animation: bounce 2s ease-in-out infinite;
+    animation: bounce 2s ease-in-out infinite;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    opacity: .6;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.baguetteBox-double-bounce2 {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s
+}
+
+@-webkit-keyframes bounce {
+
+    0%,
+    to {
+        transform: scale(0)
+    }
+
+    50% {
+        transform: scale(1)
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    to {
+        transform: scale(0)
+    }
+
+    50% {
+        transform: scale(1)
+    }
+}
+
+
+%arrow-button {
+    top: 50%;
+    top: calc(50% - 30px);
+    width: 44px;
+    height: 60px;
+}
+
+
+
+.baguetteBox-button {
+    & {
+        background-color: rgba(0, 0, 0, .5)
+    }
+
+    &#previous-button,
+    &#next-button,
+    &#close-button {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        width: 50px;
+        align-items: center;
+        border: 0;
+        margin: 0;
+        outline: 0;
+        padding: 0;
+
+        svg {
+            stroke: #fff;
+        }
+    }
+}
+
+
+// ------ my 
+.baguetteBox-status {
+    @include tablet_mid {
+        left: 15px;
+        top: 15px;
+    }
+
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .5);
+    border: 0;
+    border-radius: 50%;
+    margin: 0;
+    outline: 0;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    left: 40px;
+    top: 40px;
+}
+
+.baguetteBox-button {
+    &:hover {
+        // background-color: $black40  !important;
+    }
+}
+
+.remove-baguetteBox-caption #baguetteBox-slider figcaption {
+    display: none;
+}

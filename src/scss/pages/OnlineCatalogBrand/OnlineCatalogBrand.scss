@@ -1,0 +1,121 @@
+@import '../../vars.scss';
+// @import '../../components/table_search.scss';
+
+body,
+html {
+  background: #fff;
+  color: $grayD;
+}
+
+.header {
+  color: #fff;
+  position: relative;
+}
+
+.main-content {
+  .cards_wrap {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      @include notebook {
+        flex: 0 0 510px;
+        margin: 0 auto 35px;
+      }
+
+      @include phone_big {
+        max-width: 400px;
+        flex-direction: row;
+        max-height: 999px;
+      }
+
+      @include phone_mid {
+        max-width: 100%;
+      }
+      // width: 48%;
+      flex: 0 0 48%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-height: 120px;
+      margin-bottom: 35px;
+
+      &:nth-child(2n + 1) {
+        margin-right: auto;
+      }
+
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+
+      &:nth-last-child(2) {
+        @include notebook {
+          margin-bottom: 35px;
+        }
+
+        margin-bottom: 0;
+      }
+
+      .card_img {
+        @include phone_big {
+          height: auto;
+        }
+
+        max-width: 120px;
+        margin-right: 30px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .card_img__link {
+          img {
+            display: flex;
+          }
+        }
+      }
+
+      .card_title {
+        @include phone_big {
+          display: flex;
+          align-items: center;
+        }
+
+        // 150 это ширина картинки + margin
+        width: calc(100% - 150px);
+        font-size: 15px;
+
+        &+.card_item {
+          margin-top: 20px;
+        }
+      }
+
+      .card_item {
+        @include phone_big {
+          width: 100%;
+        }
+
+        // width: 100%;
+        display: flex;
+        align-items: flex-end;
+        margin-top: 5px;
+
+        .item_title {
+          font-weight: 300;
+        }
+
+        .dots {
+          flex-grow: 3;
+          // display: block;
+          margin: 0 3px 3px;
+          border-bottom: 1px dotted $grayD;
+        }
+
+        .item_value {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

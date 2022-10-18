@@ -1,0 +1,12 @@
+$greenD: #0E5744;
+$green: #109774;
+$greenL: #09B389;
+$gray: #C5C6C6;
+$grayD: #404040;
+$grayL: #EFEEEE;
+$red: #FF0000;
+
+$grayGradient: linear-gradient(180deg, #FFFFFF 0%, #E5E5E5 100%);
+$greenGradient: linear-gradient(180deg, #109774 0%, #257E67 100%);
+
+@import './mixins'

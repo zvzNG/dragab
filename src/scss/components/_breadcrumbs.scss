@@ -1,0 +1,32 @@
+.breadcrumbs {
+  margin-top: 10px;
+  display: block;
+  font-weight: 300;
+
+  .breadcrumbs_item {
+    display: inline;
+
+    &:last-child{
+      &::after{
+        display: none;
+      }
+    }
+
+    &::after{
+      content: '';
+      margin: 0 7px;
+      display: inline-block;
+      width: 1px;
+      height: 8px;
+      background: $greenL;
+    }
+
+    .breadcrumbs_link {
+      display: inline;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

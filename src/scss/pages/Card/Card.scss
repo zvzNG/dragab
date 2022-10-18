@@ -1,0 +1,329 @@
+@import '../../vars.scss';
+@import '../../components/popup.scss';
+@import '../../components/card.scss';
+@import '../../components/table.scss';
+@import '../../components/popup_slider.scss';
+
+@import './order.scss';
+
+body,
+html {
+  background: #fff;
+  color: $grayD;
+}
+
+
+.main-content {
+  .card_body {
+    @include notebook {
+      height: auto;
+      flex-direction: row;
+    }
+
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 470px;
+
+    .slider {
+      @include tablet {
+        margin: 0;
+        margin-bottom: 100px;
+      }
+
+      @include phone_big {
+        width: 100%;
+      }
+
+      width: 475px;
+      margin-right: 30px;
+
+      .card_slider {
+        .slide {
+          .slide_link {
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .slider_nav {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .tns-nav {
+          display: none;
+        }
+
+        .tns-controls {
+          display: none;
+        }
+
+        .slider_pagination {
+          width: 490px;
+
+          .slider_nav__item {
+            // max-width: 110px;
+            // margin-right: 25px;
+
+            img {
+              width: 100%;
+              display: flex;
+            }
+          }
+        }
+
+        .card_btn {
+          &:disabled {
+            opacity: 0;
+            visibility: hidden;
+          }
+
+          &.slider_prev {
+            @include phone_big{
+              margin-right: 20px;
+            }
+            margin-right: 40px;
+          }
+
+          &.slider_next {
+            @include phone_big{
+              margin-left: 20px;
+            }
+            
+              margin-left: 40px;
+          }
+        }
+      }
+    }
+
+    .card_inf {
+      @include pc {
+        max-width: calc(100% - 505px);
+        margin-left: 0;
+      }
+
+      @include notebook {
+        justify-content: center;
+      }
+
+      @include tablet {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      width: 540px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-left: auto;
+
+      .inf_left-block {
+        @include pc {
+          padding-right: 30px;
+        }
+
+        @include notebook {
+          padding: 0;
+          border: none;
+        }
+
+        @include tablet {
+          width: 52%;
+          min-width: 300px;
+          border-right: 1px solid $gray;
+        }
+
+        @include phone_big {
+          border: none;
+          width: 330px;
+        }
+
+        padding-right: 60px;
+        border-right: 1px solid $gray;
+      }
+
+      .inf_right-block {
+        @include pc {
+          margin-left: 30px;
+        }
+
+        @include notebook {
+          width: 100%;
+          margin: 0;
+        }
+
+        @include tablet {
+          width: auto;
+          margin: 0 auto;
+          max-width: 48%;
+        }
+
+        @include phone_big {
+          width: 330px;
+          max-width: 330px;
+          margin-top: 35px;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        width: 135px;
+        margin-left: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .order_btn {
+          @include phone_big {
+            margin: 0;
+          }
+          width: 135px;
+          margin-top: 30px;
+
+          svg {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .inf_title {
+        margin: 30px 0 10px;
+      }
+
+      .card_item {
+        @include phone_big {
+          width: 100%;
+        }
+
+        font-size: 15px;
+        width: 250px;
+        display: flex;
+        margin-top: 5px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        .item_title {
+          font-weight: 300;
+        }
+
+        .dots {
+          flex-grow: 3;
+          margin: 0 4px 3px;
+          border-bottom: 1px dotted $grayD;
+        }
+
+        .item_value {
+          font-weight: 600;
+        }
+      }
+    }
+
+    .card_text__wrap {
+      @include pc {
+        max-width: calc(100% - 505px);
+        margin-left: 0;
+      }
+
+      @include notebook {
+        max-width: 100%;
+        margin-top: 50px;
+      }
+
+      max-width: 540px;
+      margin-left: auto;
+      margin-top: 70px;
+      // margin-bottom: 80px;
+
+      .card_text {
+        font-size: 15px;
+        font-weight: 300;
+
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .Card_title {
+    margin: 50px 0 20px;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #313131;
+  }
+
+  .show_btn {
+    margin: 30px auto;
+  }
+
+  .other-goods {
+    .other-goods_cards {
+      .card {
+        &:first-child {
+          border-top: 1px solid #C5C6C6;
+        }
+
+        .card_body {
+          margin: 0;
+          flex-direction: row;
+          height: auto;
+          justify-content: flex-start;
+
+          .card_title {
+            @include pc {
+              margin: 0;
+              margin-bottom: 25px;
+              width: 100%;
+            }
+
+            margin: 0;
+            margin-left: 20px;
+            margin-right: 35px;
+            width: 410px;
+          }
+
+          .main_card {
+            @include pc {
+              padding-left: 0;
+              border-left: none;
+            }
+
+            padding: 0px 35px;
+            border-left: 1px solid $gray;
+          }
+
+          .card_price {
+            @include pc {
+              padding-left: 60px;
+            }
+
+            @include notebook {
+              padding: 0;
+              align-items: flex-start;
+            }
+
+            @include tablet_sm {
+              align-items: center;
+            }
+
+            padding-left: 35px;
+          }
+        }
+      }
+    }
+  }
+}

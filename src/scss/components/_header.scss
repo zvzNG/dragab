@@ -1,0 +1,251 @@
+// @import '../vars';
+@import './menu';
+@import './inp_search';
+
+.wrapper {
+  @include tablet_sm {
+    padding-bottom: 40px;
+  }
+}
+
+.header {
+  z-index: 999;
+  // position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: $greenD;
+  font-family: 'Source-sans-pro';
+
+  .container {
+    .header_container {
+      @include tablet_sm {
+        flex-direction: row;
+        max-height: 100%;
+        align-items: flex-end;
+      }
+
+      padding: 20px 0;
+      color: #fff !important;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-height: 120px;
+
+      .logo {
+
+        // 1-е это лого, 2-е это текст
+        @include pc {
+          max-width: 145px + 215px;
+          font-size: 16px;
+        }
+
+        @include tablet {
+          max-width: 170px;
+          flex-direction: column;
+          text-align: center;
+          font-size: 13px;
+        }
+
+        @include tablet_sm {
+          max-width: 115px + 195px;
+          flex-direction: row;
+          text-align-last: left;
+        }
+
+        display: flex;
+        height: 100%;
+        align-items: center;
+        max-width: 145px+240px;
+        font-size: 18px;
+
+        .img {
+          display: flex;
+
+          img {
+            @include tablet {
+              max-width: 105px;
+            }
+
+            @include tablet_sm {
+              max-width: 115px;
+            }
+
+            max-width: 130px;
+          }
+        }
+
+        .text {
+          @include tablet {
+            margin-left: 0;
+            margin-top: 8px;
+          }
+
+          @include tablet_sm {
+            margin-top: 0;
+            margin-left: 12px;
+          }
+
+          text-transform: uppercase;
+          margin-left: 15px;
+        }
+      }
+
+      .header-content {
+        @include pc {
+          width: 500px;
+        }
+
+        @include notebook {
+          width: 50%;
+        }
+
+        @include tablet {
+          width: 430px;
+        }
+
+        @include tablet_sm {
+          width: auto;
+        }
+
+        display: flex;
+        align-items: center;
+        margin-bottom: 18px;
+        width: 600px;
+        margin-left: auto;
+
+        .header-content_main {
+          @include tablet_sm {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.40);
+            padding: 10px 15px;
+            color: $green;
+          }
+
+          display: flex;
+          align-items: center;
+          width: 100%;
+
+          .header_btn {
+            @include notebook {
+              margin-left: 40px;
+            }
+
+            display: flex;
+            margin-left: 50px;
+            align-items: center;
+
+            &:first-child {
+              margin-left: 0;
+            }
+
+            &:hover .icon {
+              transform: scale(1.1, 1.1);
+            }
+
+            &.phone {
+              @include tablet_sm {
+                margin-right: 0px;
+              }
+
+              margin-left: auto;
+              margin-right: 40px;
+            }
+
+            .text {
+              font-size: 15px;
+              margin-right: 8px;
+            }
+
+            .icon {
+              display: flex;
+
+              svg {
+                use {
+                  @include tablet_sm {
+                    fill: $green;
+                  }
+
+                  fill: #fff;
+                }
+              }
+            }
+          }
+        }
+
+        .mail {
+          @include phone {
+            display: none;
+          }
+        }
+      }
+
+      #header-search {
+        @include pc {
+          width: 500px;
+        }
+
+        @include notebook {
+          width: 50%;
+        }
+
+        @include tablet {
+          width: 430px;
+        }
+
+        @include tablet_sm {
+          width: 100%;
+        }
+
+        @include tablet_sm {
+          margin-top: 18px;
+        }
+
+        margin-left: auto;
+        width: 600px;
+
+
+        .search_prompt {
+          width: 100%;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          transform: translateY(-3px);
+          padding: 0 10px;
+          z-index: 5;
+          border: 1px solid $gray;
+          background: #fff;
+          color: $grayD;
+
+          &.none {
+            display: none;
+          }
+
+          .prompt_list {
+            display: flex;
+            flex-direction: column;
+
+            .prompt_link {
+              margin-top: 10px;
+
+              &:hover {}
+            }
+
+            .show-all {
+              padding: 10px 0;
+
+              .show-all_link {
+                color: $greenL;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

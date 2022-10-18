@@ -1,0 +1,161 @@
+@import '../../vars.scss';
+@import '../../components/popup.scss';
+@import '../../components/card.scss';
+@import '../../components/table.scss';
+
+.Products {
+  .product {
+    border-bottom: 1px solid $gray;
+    display: flex;
+    font-size: 15px;
+
+    &.is-active .product_title .scheme-budge span {
+      background: $green;
+      color: #fff;
+    }
+
+    .product_title {
+      flex-grow: 3;
+      display: flex;
+      flex-direction: column;
+
+      span {
+        margin-left: 40px;
+        padding-bottom: 15px;
+      }
+
+      .scheme-budge {
+        width: 100%;
+        display: flex;
+
+        span {
+          cursor: pointer;
+          padding: 0;
+          margin: 0;
+          min-width: 30px;
+          font-size: 18px;
+          height: 25px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #E5E5E5;
+        }
+      }
+    }
+
+    .product_info {
+      @include tablet {
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 15px;
+
+        .info_item {
+          margin-bottom: 10px;
+        }
+
+        .info_item:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      display: flex;
+      align-items: center;
+
+      .info_item {
+        // flex: 0 0 245px;
+        width: 245px;
+        display: flex;
+        align-items: center;
+        padding: 30px 15px;
+
+        .item_text{
+          display: flex;
+        }
+      }
+
+      .product_article {
+        @include tablet {
+          border: none;
+          padding: 0;
+          height: auto;
+        }
+
+        height: 100%;
+        border-left: 1px solid $gray;
+        border-right: 1px solid $gray;
+
+        .article_value {
+          font-weight: 600;
+        }
+      }
+
+      .product_quantity {
+        @include tablet {
+          padding: 0;
+        }
+
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+
+        .quantity_drop-list {
+          display: flex;
+          position: relative;
+          cursor: pointer;
+
+          &.active {
+            .drop-list_text svg {
+              transform: rotate(180deg);
+            }
+
+            .drop-list_body {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+
+          .drop-list_text {
+            font-weight: 600;
+
+            svg {
+              position: relative;
+              z-index: 5;
+              width: 14px;
+              height: 8px;
+              stroke: $grayD;
+            }
+          }
+
+          .drop-list_body {
+            opacity: 0;
+            visibility: hidden;
+            cursor: pointer;
+            padding: 10px;
+            padding-right: 35px;
+            position: absolute;
+            top: -11px;
+            right: -15px;
+            background: #FFFFFF;
+            border: 1px solid $gray;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+            border-radius: 3px;
+          }
+
+          span {}
+
+          .drop-list_item {
+            white-space: nowrap;
+          }
+        }
+      }
+
+      .dots {
+        // flex-grow: 3;
+        width: 40px;
+        flex: 0 0 40px;
+        border-bottom: 1px dotted $grayD;
+        margin: 11px 5px 0;
+      }
+    }
+  }
+}

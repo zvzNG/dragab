@@ -1,0 +1,142 @@
+@import '../vars.scss';
+
+body,
+html {
+  background: #fff;
+  color: $grayD;
+}
+
+.main-content {
+  .search_list {
+    margin-top: 40px;
+
+    .article {
+      width: 190px;
+      flex: 0 0 190px;
+    }
+
+    .name {
+      width: 360px;
+      flex: 0 0 360px;
+    }
+
+    .article,
+    .name,
+    .scheme {
+      @include notebook {
+        width: 100%;
+        flex: 0 0 100%;
+        border-right: none;
+        padding: 0 !important;
+      }
+
+      padding: 10px 15px;
+      border-right: 1px solid $gray;
+    }
+
+    .scheme {
+      // width: 100%;
+      // flex: 0 0 100%;
+      flex-grow: 3;
+      border-right: none !important;
+    }
+
+    .search_titles {
+      @include notebook {
+        display: none;
+      }
+
+      display: flex;
+      width: 100%;
+      flex: 0 0 100%;
+      background: $greenD;
+      color: #fff;
+
+      .search_title {
+        padding: 10px 15px;
+        border-right: none;
+        font-weight: 700;
+      }
+    }
+
+    .search_item {
+      @include notebook {
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid $grayL;
+        margin-top: 0;
+        padding: 15px 0 !important;
+
+        .search_title {
+          margin: 5px 0;
+        }
+      }
+
+      font-size: 14px;
+      display: flex;
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid $gray;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 30px;
+      }
+
+      .search_artikul {
+        display: flex;
+        align-items: center;
+      }
+
+      .search_title {
+        display: flex;
+        align-items: center;
+      }
+
+      .search_breadcrumbs {
+        margin: 0;
+        padding: 10px 15px;
+        font-weight: 400;
+
+        .breadcrumbs_item {
+          .breadcrumbs_item__text {
+            font-size: 15px;
+          }
+
+          .breadcrumbs_link {
+            span {
+              text-decoration: underline;
+              font-size: 15px;
+              color: $greenL;
+              text-decoration: none;
+            }
+
+            &:hover span {
+              text-decoration: underline;
+            }
+          }
+
+          &:last-child {
+            svg {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .show_btn {
+      margin: 40px auto 0px;
+
+      &.none {
+        display: none;
+      }
+    }
+  }
+
+  .submit_btn{
+    margin: 30px auto 0;
+  }
+}

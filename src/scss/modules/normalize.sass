@@ -1,0 +1,26 @@
+@import '../../../node_modules/normalize.css/normalize'
+
+input,
+textarea,
+select,
+button
+  border: none
+  outline: none
+  appearance: none
+  background: unset
+  box-shadow: none
+
+button
+  padding: 0
+  margin: 0
+
+*:focus
+  box-shadow: none
+
+// ie11 input cross
+::-ms-clear
+  display: none
+
+// ie11 selct arrow
+select::-ms-expand
+  display: none

@@ -1,0 +1,96 @@
+// @import '../vars';
+
+.footer {
+  font-size: 13px;
+  padding: 15px 10px;
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  align-self: flex-end;
+  align-content: flex-end;
+  background: $grayL;
+  color: $grayD;
+  width: 100%;
+  z-index: 50;
+
+  img {
+    display: flex;
+    margin-right: 10px;
+  }
+
+  .footer_container {
+    @include notebook {
+      justify-content: center;
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    font-size: 15px;
+
+    .footer_main {
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .avtoalfa_logo,
+      .footer_main__text,
+      .footer_main__logos,
+      .footer_text {
+        @include phone {
+          margin: 3px 0;
+        }
+
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+      }
+
+      .avtoalfa_logo {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+
+      .footer_main__logos {
+        @media (max-width:703px) {
+          margin: 3px 0;
+          margin-left: 10px;
+        }
+
+        @include phone {
+          margin-left: 0;
+        }
+
+        margin-left: 10px;
+
+        .gilber {
+          transform: translateY(-4px);
+        }
+
+        .footer_link {
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+
+    .footer_text {
+      @include notebook {
+        margin: 0;
+      }
+
+      font-weight: 400;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+
+      img {
+        margin-right: 5px;
+      }
+    }
+  }
+}

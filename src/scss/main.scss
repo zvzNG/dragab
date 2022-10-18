@@ -1,0 +1,88 @@
+@import './vars.scss';
+
+@include font("Source-sans-pro", "SourceSansPro-Bold", 700, "normal");
+@include font("Source-sans-pro", "SourceSansPro-Semibold", 600, "normal");
+@include font("Source-sans-pro", "SourceSansPro-Regular", 400, "normal");
+@include font("Source-sans-pro", "SourceSansPro-Light", 300, "normal");
+
+// @include font("Montserrat", "Montserrat-Medium", 500, "normal");
+
+@import './modules/normalize';
+// @import './fonts';
+
+// @import './components/layout/SVG';
+// @import './components/layout/Link';
+// @import './components/layout/ToTop';
+// @import './components/layout/Button';
+// @import './components/layout/Hovacity';
+// @import './components/layout/Container';
+
+// @import './components/layout/StickyBar';
+// @import './components/layout/HelpBar';
+
+
+// @import './mixsins';
+@import './components/base.scss';
+@import './components/_header.scss';
+@import './components/_footer.scss';
+@import './components/_breadcrumbs.scss';
+// @import './components/accordion.scss';
+@import './promo/Error404.scss';
+
+
+body,
+html {
+  min-width: 360px;
+  transition: 0s;
+  font-family: 'Source-sans-pro', sans-serif;
+  padding: 0;
+  margin: 0;
+  background: $greenD;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0s;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  transition: .3s;
+  line-height: 130%;
+
+  &::after,
+  &::before {
+    transition: .3s;
+  }
+}
+
+ul,
+li,
+ol {
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+input {
+  outline: none;
+}
+
+button {
+  background: none;
+  padding: 0;
+  border: none;
+  outline: none;
+  color: inherit;
+  cursor: pointer;
+}

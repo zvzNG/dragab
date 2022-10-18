@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+
+  <title>Bovia</title>
+  <meta name="description" content="" />
+  <!-- <style> @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');</style> -->
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="container">
+        <div class="header_container">
+          <a href="/" class="logo">
+            <span class="img">
+              <img src="/icons/logo.svg" alt="Bovia logo">
+            </span>
+            <span class="text">
+              Запчасти для грузовиков и двигателей камминз
+            </span>
+          </a>
+
+          <div class="header-content">
+            <div class="header-content_main">
+              <button class="toggle-trigger header_btn menu" data-link=".menu.menu_body">
+                <span class="text">Меню</span>
+                <span class="icon">
+                  <svg width="21" height="15">
+                    <use xlink:href="/icons/sprite.svg#menu"></use>
+                  </svg>
+                </span>
+              </button>
+
+              <button class="toggle-trigger header_btn catalog" data-link=".menu_body.catalog">
+                <span class="text">Каталог</span>
+                <span class="icon">
+                  <svg width="21" height="18">
+                    <use xlink:href="/icons/sprite.svg#catalog"></use>
+                  </svg>
+                </span>
+              </button>
+
+              <button class="toggle-trigger header_btn phone"  data-link=".menu_body.phone">
+                <span class="icon">
+                  <svg width="21" height="22">
+                    <use xlink:href="/icons/sprite.svg#phone"></use>
+                  </svg>
+                </span>
+              </button>
+            </div>
+
+            <a href="mailto:info@bovia.online" target="_blank" class="mail underline">
+              info@bovia.online
+            </a>
+          </div>
+
+          <form action="#" class="search form" id="header-search">
+            <input type="text" name="search" class="inp_search" placeholder="Поиск по артикулу или названию">
+            <button type="reset" class="btn search_clear">
+              <svg width="15" height="15">
+                <use xlink:href="/icons/sprite.svg#close"></use>
+              </svg>
+            </button>
+            <button type="submit" class="btn submit-btn">
+              <svg width="18" height="18">
+                <use xlink:href="/icons/sprite.svg#magnifier_saearch"></use>
+              </svg>
+            </button>
+            <div class="search_prompt none">
+              <!-- <div class="prompt_list">
+                <a href="#" class="prompt_link">
+                  <b>Болт</b> - ЯЗДА
+                </a>
+                <a href="#" class="prompt_link">
+                  <b>Болт</b> КАМАЗ - БелЗАН
+                </a>
+                <div class="show-all">
+                  <a href="#" class="show-all_link">
+                    Показать все результаты
+                  </a>
+                </div>
+              </div> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </header>

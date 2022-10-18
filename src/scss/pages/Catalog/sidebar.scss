@@ -1,0 +1,46 @@
+// sidebar=====
+
+.sidebar {
+  @include pc {
+    margin-right: 30px;
+  }
+
+  @include notebook {
+    display: none;
+  }
+
+  position: static;
+  width: 300px;
+  flex: 0 0 300px;
+  margin-right: 50px;
+  transform: translate(0, 0);
+  z-index: 1;
+
+  .menu-close {
+    display: none;
+  }
+
+  .aside-block {
+    width: 100%;
+
+    li {
+      .aside-block_title.toggle_btn.dot.hov {}
+
+      .aside-block {
+        li {
+          margin-bottom: 8px;
+        }
+
+        .aside-block_item.aside-block_link {
+          &:hover {}
+
+          &:active {}
+
+          &:focus {}
+        }
+
+        .aside-block_item {}
+      }
+    }
+  }
+}

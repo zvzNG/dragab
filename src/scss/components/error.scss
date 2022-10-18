@@ -1,0 +1,94 @@
+@import '../vars.scss';
+
+.error {
+  @include notebook {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  display: flex;
+
+  .img {
+    img {
+      max-width: 100%;
+      display: flex;
+    }
+  }
+
+  .text {
+    @include phone {
+      width: 100%;
+    }
+
+    margin: 0 auto;
+
+    .title-2 {
+      @include tablet_mid {
+        font-size: 21px;
+        margin-bottom: 25px;
+
+        .sub-title {
+          display: none;
+        }
+      }
+
+      @include phone {
+        font-size: 17px;
+      }
+
+      display: flex;
+      flex-direction: column;
+      font-size: 26px;
+      text-transform: none;
+      text-align: center;
+      white-space: nowrap;
+
+      .sub-title {
+        margin-top: 10px;
+        font-size: 17px;
+        color: $greenL;
+      }
+    }
+
+    .error_icons {
+      @include tablet_mid {
+        display: none;
+      }
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 45px 0 35px;
+
+      .error_icon {
+        margin-right: 50px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      svg {
+        use {}
+      }
+    }
+
+    .btns_wrap {
+      display: flex;
+      justify-content: center;
+
+      .green-btn {
+        @include phone {
+          margin: 0 auto !important;
+        }
+
+        width: 155px;
+        margin-right: 45px;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

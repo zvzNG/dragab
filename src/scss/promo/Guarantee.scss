@@ -1,0 +1,92 @@
+@import '../vars.scss';
+@import '../components/scroll.scss';
+
+.header {
+  position: relative;
+}
+
+.main-content {
+  @include pc {
+    align-items: center;
+  }
+
+  @include notebook {
+    flex-direction: column;
+  }
+
+  display: flex;
+
+  .pictures {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .picture {
+      display: flex;
+
+      img {
+        @include pc {
+          max-width: 440px;
+        }
+
+        @include phone {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .pictures_text {
+      font-weight: 300;
+      font-size: 26px;
+      color: $greenL;
+      text-align: center;
+      max-width: 420px;
+      margin-top: 40px;
+
+      br{
+        &:first-child{
+          @include phone {
+            display: block;
+          }
+          display: none;
+        }
+      }
+    }
+  }
+
+  .text {
+    @include notebook {
+      margin: 0;
+    }
+
+    margin-left: 60px;
+
+    .scroll {
+      @include notebook {
+        max-height: 100%;
+      }
+
+      max-height: 560px;
+
+      .title-2 {
+        margin-top: 40px;
+
+        &:first-child {
+          @include notebook {
+            margin-top: 40px;
+          }
+
+          margin: 0;
+        }
+      }
+
+      p {
+        font-size: 15px;
+
+        &:last-child {
+          color: $greenL;
+        }
+      }
+    }
+  }
+}

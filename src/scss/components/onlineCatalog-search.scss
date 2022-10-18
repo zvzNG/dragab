@@ -1,0 +1,31 @@
+@import '../vars.scss';
+
+#catalog-search {
+  @include phone_mid {
+    width: 100%;
+  }
+
+  width: 385px;
+
+  .inp_search {
+    border: 1px solid $gray;
+  }
+}
+
+#catalog-list {
+  .green-btn {
+    margin: 40px auto 60px;
+
+    .text {}
+
+    .load {
+      img {}
+    }
+
+    &:hover {}
+
+    &:active {}
+
+    &:focus {}
+  }
+}

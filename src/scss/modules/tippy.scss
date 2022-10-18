@@ -1,0 +1,33 @@
+@import "../../../node_modules/tippy.js/dist/tippy";
+@import '../vars';
+@import '../mixins';
+
+.tippy-box[data-theme~=interactive-list] {
+  max-height: 120px;
+  overflow: auto;
+  overflow-x: auto;
+  overflow-x: hidden;
+
+  padding: 6px 26px 6px 6px;
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  font-size: 14px;
+  color: #404040;
+  font-family: Roboto, sans-serif;
+
+  .tippy-content {
+    padding: 0;
+  }
+}
+
+.tippy-box[data-theme~=faceless] {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+
+  .tippy-content {
+    padding: 0;
+  }
+}

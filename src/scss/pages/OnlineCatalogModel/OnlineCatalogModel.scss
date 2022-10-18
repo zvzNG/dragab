@@ -1,0 +1,240 @@
+@import '../../vars.scss';
+// @import '../../components/table_search.scss';
+
+.main-content {
+
+  .model_container {
+    @include phone_big {
+      flex-direction: column;
+    }
+
+    display: flex;
+    margin-bottom: 40px;
+
+    .model_img {
+      @include phone_big {
+        margin: 0;
+        margin-bottom: 30px;
+      }
+
+      margin-right: 45px;
+
+      img {
+        display: flex;
+      }
+    }
+
+    .model_inf {
+      // display: flex;
+      // flex-wrap: wrap;
+      display: inline-block;
+
+      &__item {
+        @include phone_big {
+          margin-right: 0;
+          // margin-top: 10px;
+        }
+
+        // display: flex;
+        display: inline-block;
+        margin-right: 25px;
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .item_name {
+          display: inline;
+          color: $greenL;
+          margin-right: 5px;
+        }
+
+        .item_value {
+          display: inline;
+        }
+      }
+
+      .model_title {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  #catalog-search {
+    // border-bottom: 1px solid $greenL;
+
+    &::after {
+      content: '';
+      width: 95%;
+      height: 1px;
+      display: block;
+      background: $greenL;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .inp_search {
+      // background: $greenD;
+      // color: #fff;
+      border: none;
+    }
+
+    .submit-btn {
+      border: 1px solid $greenL;
+      border-radius: 3px 3px 3px 0px;
+      // border-bottom: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 36px;
+      top: 0;
+      right: 0;
+
+      svg {
+        use {
+          fill: $grayD;
+        }
+      }
+    }
+  }
+
+  .catalog-drop-list {
+    font-size: 15px;
+    margin-top: 45px;
+
+    .toggle_btn {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      margin-bottom: 0;
+
+      &.active {
+        // margin-bottom: 15px;
+
+        .icon svg {
+          transform: rotate(135deg) scaleX(-1);
+          fill: $greenL;
+        }
+      }
+
+      .icon {
+        margin-right: 10px;
+
+        svg {
+          transform: rotate(135deg);
+          width: 14px;
+          height: 14px;
+          fill: #9E9E9E;
+        }
+      }
+    }
+
+    .drop_item {
+      overflow: hidden;
+
+      // &.active ul li {
+      //   margin-top: 0;
+      //   opacity: 1;
+      //   margin-bottom: 15px;
+
+      //   .drop_item ul li {
+      //     transition: margin .5s, opacity .3s;
+      //     width: auto;
+      //     margin: 0;
+      //     opacity: 0;
+      //     margin-top: -100px;
+      //     overflow: hidden;
+      //   }
+
+      //   .drop_item.active ul li {
+      //     margin-top: 0;
+      //     opacity: 1;
+      //     margin-bottom: 15px;
+      //   }
+      // }
+
+      // &.hidden ul li {
+      //   transition: margin .5s, opacity .3s;
+      //   width: auto;
+      //   margin: 0;
+      //   opacity: 0;
+      //   margin-top: -100px;
+      //   overflow: hidden;
+
+      //   .drop_item ul li {
+      //     transition: margin .5s, opacity .3s;
+      //     width: auto;
+      //     margin: 0;
+      //     opacity: 0;
+      //     margin-top: -100px;
+      //     overflow: hidden;
+      //   }
+      // }
+
+      ul {
+        padding-top: 15px;
+
+        li {
+          transition: .5s;
+          overflow: hidden;
+          margin: 0;
+          margin-bottom: 15px;
+          // opacity: 0;
+          // margin-top: -100px;
+          overflow: hidden;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .value {
+      background: $greenL;
+      color: #fff;
+      margin-left: 10px;
+      border-radius: 3px;
+      font-size: 13px;
+      text-transform: none;
+      padding: 2px 10px;
+    }
+
+    li{
+      overflow: hidden;
+    }
+
+    ul {
+      .drop_item {
+        padding-left: 20px;
+      }
+
+      ul {
+        .drop_item {
+          ul {
+            padding-left: 10px;
+          }
+
+          li {
+            .drop_link {
+              color: $greenL;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+
+            .value {
+              display: inline-block;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

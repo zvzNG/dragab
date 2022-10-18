@@ -1,0 +1,83 @@
+@import '../../vars.scss';
+
+.pagination_wrap {
+  width: 100%;
+
+  .Pagination {
+    display: flex;
+    justify-content: center;
+    height: 35px;
+
+    &__inner {
+      background: linear-gradient(180deg, #E5E5E5 0%, #FEFEFE 100%);
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: $grayD;
+      font-size: 18px;
+
+      .Pagination__item {
+        width: 40px;
+        height: 23px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #9E9E9E;
+
+        &:nth-child(12) {
+          border: none;
+        }
+
+        &:nth-child(4),
+        &:nth-child(10) {
+          @include phone_mid {
+            display: none;
+          }
+        }
+
+        &:hover {
+          color: #12AA83;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &.Pagination__-- {
+          @include tablet_sm {
+            display: none;
+          }
+
+          &::after {
+            content: '...';
+            color: $grayD;
+          }
+        }
+
+        &--active {
+          color: #12AA83;
+        }
+      }
+
+      .Pagination__item.Pagination__arrow {
+        @include tablet_sm {
+          display: none;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: url("data: image/svg+xml,%3csvg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath clip-rule='evenodd' d='M1.12386 6.09483L12.1665 6.0857L10.0417 8.14861C9.82402 8.35945 9.71429 8.6384 9.71518 8.91749C9.71546 9.19514 9.82488 9.4735 10.044 9.68375C10.2617 9.89458 10.5512 10.0003 10.8378 10C11.1245 9.99972 11.4119 9.89374 11.6289 9.68147L15.5539 5.8703L15.6067 5.8312L15.6742 5.76959C15.7788 5.66836 15.8574 5.55054 15.9128 5.42676C15.9658 5.30558 15.9943 5.17557 15.9994 5.04306L16 4.96586C15.9982 4.82935 15.9679 4.69064 15.9103 4.56098C15.8559 4.43504 15.7757 4.31756 15.6718 4.21774L15.6035 4.15753L15.5507 4.118L11.6159 0.316256C11.3983 0.105429 11.1103 -0.000854956 10.8221 5.17895e-06C10.5355 0.000283361 10.2481 0.106268 10.031 0.31854C9.81336 0.529374 9.70363 0.808326 9.70452 1.08741C9.7048 1.36506 9.81422 1.64343 10.0334 1.85368L12.1632 3.91173L1.11909 3.92145C0.811624 3.92152 0.531444 4.04476 0.32859 4.24142C0.127219 4.4375 0.00108997 4.70615 0.00056462 5.00252L0 5.00944C7.54671e-05 5.30725 0.127308 5.57864 0.330346 5.77512C0.533384 5.9716 0.815796 6.09346 1.12326 6.09339L1.12386 6.09483Z' fill='%239E9E9E' stroke-width='2'/%3e%3c/svg%3e") center center no-repeat;
+        }
+
+        &:first-child::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

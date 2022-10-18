@@ -1,0 +1,59 @@
+.table_body {
+  width: 100%;
+
+  tbody {
+    tr {
+      display: flex;
+      border-bottom: 1px solid $gray;
+
+      &:first-child {
+        background: $greenD;
+        border: none !important;
+
+        th {
+          border: none !important;
+        }
+      }
+
+      th {
+        padding: 10px 15px;
+        text-align: left;
+        font-size: 15px;
+        letter-spacing: 0.03em;
+        font-weight: 400;
+
+        &:nth-child(2n + 1) {
+          @include tablet_sm {
+            width: 200px;
+            flex: 0 0 200px;
+          }
+
+          @include phone {
+            width: 140px;
+            flex: 0 0 140px;
+          }
+
+          width: 280px;
+          flex: 0 0 280px;
+          border-right: 1px solid $gray;
+        }
+
+        &:nth-child(2n) {
+          flex-grow: 3;
+        }
+
+        .table_breadcrumbs {
+          margin-top: 0;
+        }
+      }
+
+      .table_title {
+        font-size: 15px;
+        text-align: left;
+        margin: 0;
+        color: #fff;
+        text-transform: none;
+      }
+    }
+  }
+}
