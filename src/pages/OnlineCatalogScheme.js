@@ -1,6 +1,6 @@
 import Page from '../components/Page/Page';
 import '../scss/pages/OnlineCatalogScheme/OnlineCatalogScheme';
-import $ from 'cash-dom';
+// import $ from 'cash-dom';
 import Draggabilly from 'draggabilly';
 import dropList from '../components/dropList';
 import initApplicability from '../modules/initApplicability';
@@ -17,17 +17,18 @@ class OnlineCatalogScheme extends Page {
     dropList('.quantity_drop-list, .oem-number_value');
   }
 
-  initDraggabilly(){
-    const scheme = $('.scheme');
-    const original_wrapp = scheme.find('.draggabilly-overflow');
-    const draggabilly_self = scheme.find('.draggabilly');
-    const draggabilly_image_ovewflow = scheme.find(
+  initDraggabilly() {
+    const scheme = document.querySelector('.scheme');
+    const original_wrapp = scheme.querySelector('.draggabilly-overflow');
+    const draggabilly_self = scheme.querySelector('.draggabilly');
+    const draggabilly_image_ovewflow = scheme.querySelector(
       '.draggabilly .img-overflow'
     );
-    const draggabilly_image = draggabilly_image_ovewflow.find('img');
-    const spans = draggabilly_image_ovewflow.find('span');
-    const info = scheme.find('.info');
-    const products = $('.product');
+    const draggabilly_image = draggabilly_image_ovewflow.querySelector('img');
+    const spans = draggabilly_image_ovewflow.querySelectorAll('span');
+
+    const info = scheme.querySelector('.info');
+
     let draggabilly = false;
     let zoom = 0.5;
 
@@ -36,7 +37,7 @@ class OnlineCatalogScheme extends Page {
       enableDraggabilly();
     }
 
-    var img = scheme.find('.img-overflow img')[0];
+    var img = scheme.querySelector('.img-overflow img');
 
     if (img.complete) {
       loaded();
@@ -51,31 +52,47 @@ class OnlineCatalogScheme extends Page {
       img.closest('.draggabilly').classList.add('is-loaded');
     }
 
-    $(window).on('resize', () => resizeDefault());
+    window.addEventListener('resize', () => resizeDefault());
 
-    $(document).on('click', (e) => {
+    window.addEventListener('click', (e) => {
+      console.log(e.target)
       if (e.target.closest('.scheme .info:not(.hovered)')) {
-        info.addClass('hovered');
+        info.classList.add('hovered');
       } else {
-        info.removeClass('hovered');
+        info.classList.remove('hovered');
       }
     });
 
     // На мобильниках инициилизируем перетаскивание только после нажатие на кнопки
-    scheme
-      .find('.increase, .decrease, .info, .labels')
-      .on('click', (e) => enableDraggabilly());
+    const schemeInterface = scheme.querySelectorAll('.scheme_interface');
 
-    scheme.find('.labels').on('click', (e) => {
-      spans.toggleClass('is-hidden');
-      scheme.find('.labels').toggleClass('is-active');
+    schemeInterface.forEach((item) => {
+      item.addEventListener('click', (e) => enableDraggabilly());
     });
 
-    scheme.find('.increase').on('click', (e) => resizeImage(0.1));
-    scheme.find('.decrease').on('click', (e) => resizeImage(-0.1));
+    // scheme
+    //   .find('.increase, .decrease, .info, .labels')
+    //   .on('click', (e) => enableDraggabilly());
+
+    const labels = scheme.querySelector('.labels');
+
+    labels.addEventListener('click', (e) => {
+      spans.forEach((span) => {
+        span.classList.toggle('is-hidden');
+      });
+      labels.classList.toggle('is-active');
+    });
+
+    const increase = scheme.querySelector('.increase');
+    const decrease = scheme.querySelector('.decrease');
+
+    increase.addEventListener('click', (e) => resizeImage(0.1));
+    decrease.addEventListener('click', (e) => resizeImage(-0.1));
 
     // Сбрасывает увеличение и центрирует
-    scheme.find('.window_size').on('click', (e) => {
+    const windowSize = scheme.querySelector('.window_size');
+
+    windowSize.addEventListener('click', (e) => {
       resizeDefault();
       if (draggabilly) {
         centerDraggabilly();
@@ -93,41 +110,67 @@ class OnlineCatalogScheme extends Page {
         zoom = savedZoom;
       }
 
-      draggabilly_self.css('transform', `scale(${zoom})`);
+      draggabilly_self.style.transform = `scale(${zoom})`;
     }
 
     function initJumping() {
-      const products = $(`div[data-index]`);
-
-      spans.on('click', (e) => {
-        const span = $(e.target);
-        const product = $(`div[data-index="${span.attr('data-index')}"]`);
-        scrollTo(product[0], 0, 350);
-        selectProduct(product);
-        selectSpan(span);
+      window.addEventListener('click', (e) => {
+        console.log(isMobile());
+        //   if (e.target.closest('span.label[data-index]')) {
+        //     const span = e.target;
+        //     const index = span.dataset.index;
+        //     const product = document.querySelector(`div[data-index="${index}"]`);
+        //     scrollTo(product, 0, 400);
+        //     selectProduct(product);
+        //     selectSpan(span);
+        //   }
       });
 
-      $('body').on('click', '.scheme-budge span', (e) => {
-        const product = $(e.target).closest('[data-id]');
-        const span = $(`span[data-index="${product.attr('data-index')}"]`);
-        scrollTo(document.querySelector('h1'), 0, 250);
-        selectProduct(product);
-        selectSpan(span);
-        centerDraggabilly();
-        // resizeDefault();
+      const JumpPoints = scheme.querySelectorAll('span.label[data-index]');
+
+      JumpPoints.forEach((point) => {
+        point.addEventListener('click', (e) => {
+          // e.stopPropagation();
+          const index = point.dataset.index;
+
+          console.log(index);
+
+          const product = document.querySelector(`div[data-index="${index}"]`);
+          scrollTo(product, 0, 400);
+          selectProduct(product);
+          selectSpan(point);
+        });
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target.closest('.scheme-budge span')) {
+          const product = e.target.closest('[data-id]');
+          const index = product.dataset.index;
+          const span = document.querySelector(`span[data-index="${index}"]`);
+          scrollTo(document.querySelector('h1'), -45, 400);
+          selectProduct(product);
+          selectSpan(span);
+          centerDraggabilly();
+          resizeDefault();
+        }
       });
 
       function selectSpan(span) {
-        spans.removeClass('is-active');
-        $(`.label[data-index="${span.attr('data-index')}"`).addClass(
-          'is-active'
-        );
+        removeActive('.label[data-index]');
+        const index = span.dataset.index;
+        const labels = document.querySelectorAll(`.label[data-index="${index}"`);
+        labels.forEach(label => label.classList.add('is-active'));
       }
 
       function selectProduct(product) {
-        products.each((i, item) => item.classList.remove('is-active'));
-        product.addClass('is-active');
+        removeActive('div[data-index]');
+        product?.classList.add('is-active');
       }
+    }
+
+    function removeActive(selector) {
+      const activeEls = document.querySelectorAll(`${selector}.is-active`);
+      activeEls?.forEach(activeEl => activeEl.classList.remove('is-active'));
     }
 
     function disableDraggabilly() {
@@ -137,8 +180,9 @@ class OnlineCatalogScheme extends Page {
 
     function enableDraggabilly() {
       if (!draggabilly) {
-        draggabilly = new Draggabilly(draggabilly_image_ovewflow[0], {
-          grid: isMobile() ? [120, 120] : [5, 5],
+        draggabilly = new Draggabilly(draggabilly_image_ovewflow, {
+          // grid: isMobile() ? [120, 120] : [5, 5],
+          grid: [5, 5],
         });
       }
     }
@@ -150,10 +194,10 @@ class OnlineCatalogScheme extends Page {
     }
 
     function resizeDefault() {
-      const ImgWidth = draggabilly_image.width();
+      const ImgWidth = draggabilly_image.clientWidth;
       const ImgHeight = getNormalHeightCachDomIsBAD(draggabilly_image);
 
-      const ImgAreaWidth = original_wrapp.width();
+      const ImgAreaWidth = original_wrapp.clientWidth;
       const ImgAreaHeight = getNormalHeightCachDomIsBAD(original_wrapp);
 
       const localZoom =
@@ -163,12 +207,10 @@ class OnlineCatalogScheme extends Page {
         ]) * 1;
 
       resizeImage(localZoom, true);
-      scheme.css('height', `${ImgHeight * localZoom}px`);
+      scheme.style.height = `${ImgHeight * localZoom}px`;
 
       function getNormalHeightCachDomIsBAD(el) {
-        return parseFloat(
-          getComputedStyle(el[0], null).height.replace('px', '')
-        );
+        return parseFloat(getComputedStyle(el, null).height.replace('px', ''));
       }
     }
 
